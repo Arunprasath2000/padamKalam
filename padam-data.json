@@ -1,0 +1,70 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Soorarai Pottru",
+      "year": 2020,
+      "genre": "Drama",
+      "director": "Sudha Kongara",
+      "music": "G.V. Prakash Kumar",
+      "cast": "Suriya, Aparna Balamurali",
+      "rating": 5,
+      "story": "An inspiring story of a man who dreams of making air travel affordable for the common people, fighting every obstacle in his path.",
+      "pros": "Inspiring story,Career-best Suriya,Powerful music",
+      "cons": "Slightly long runtime",
+      "family": "yes",
+      "watch": "theatre",
+      "youtube": "https://youtu.be/Ab43cM9mFTo",
+      "poster": "",
+      "viewerReviews": [
+        {
+          "name": "Arun",
+          "rating": 5,
+          "text": "Most inspiring Tamil film of the decade. A must watch!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Vikram",
+      "year": 2022,
+      "genre": "Action",
+      "director": "Lokesh Kanagaraj",
+      "music": "Anirudh Ravichander",
+      "cast": "Kamal Haasan, Vijay Sethupathi, Fahadh Faasil",
+      "rating": 4.5,
+      "story": "A special agent investigates a series of masked killings, only to uncover a web far bigger and more dangerous than he imagined.",
+      "pros": "Stylish direction,Stellar cast,Banger soundtrack",
+      "cons": "Violent for some",
+      "family": "partial",
+      "watch": "theatre",
+      "youtube": "https://youtu.be/OKBMCL-frPU",
+      "poster": "",
+      "viewerReviews": [
+        {
+          "name": "Karthik",
+          "rating": 5,
+          "text": "Lokesh universe is on fire. Goosebumps throughout!"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Jai Bhim",
+      "year": 2021,
+      "genre": "Drama",
+      "director": "T.J. Gnanavel",
+      "music": "Sean Roldan",
+      "cast": "Suriya, Lijomol Jose",
+      "rating": 4.5,
+      "story": "A lawyer fights a relentless legal battle for justice on behalf of a marginalised tribal family wronged by the system.",
+      "pros": "Hard-hitting,Important theme,Strong performances",
+      "cons": "Heavy subject",
+      "family": "partial",
+      "watch": "ott",
+      "youtube": "",
+      "poster": "",
+      "viewerReviews": []
+    }
+  ]
+}

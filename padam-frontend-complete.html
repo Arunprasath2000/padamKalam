@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PADAM — Tamil Cinema Reviews</title>
+<meta name="description" content="Honest Tamil cinema reviews — what to watch in theatres, on OTT, or skip.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0a0918;
+  --bg2:#110f29;
+  --surface:#191636;
+  --surface2:#241f49;
+  --pink:#ff2e88;
+  --violet:#a855f7;
+  --cyan:#22d3ee;
+  --gold:#ffc23d;
+  --lime:#34d399;
+  --orange:#fb6f3c;
+  --blue:#5b8cff;
+  --cream:#f3f0ff;
+  --muted:#a59fce;
+  --line:rgba(255,255,255,.09);
+  --brand:linear-gradient(120deg,#ff2e88,#a855f7 45%,#22d3ee);
+  --brand2:linear-gradient(120deg,#ffc23d,#ff2e88 55%,#a855f7);
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+  --display:'Oswald',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html.ta{--body:'Noto Sans Tamil',sans-serif;}
+html.ta .display-ta{font-family:'Noto Sans Tamil',sans-serif;}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:
+    radial-gradient(900px 480px at 88% -8%, rgba(255,46,136,.20), transparent 60%),
+    radial-gradient(800px 440px at 10% 4%, rgba(34,211,238,.16), transparent 58%),
+    radial-gradient(700px 500px at 50% 110%, rgba(168,85,247,.18), transparent 60%),
+    var(--bg);
+  color:var(--cream);
+  line-height:1.6;min-height:100vh;letter-spacing:.2px;
+}
+.container{max-width:1240px;margin:0 auto;padding:0 26px}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--body);cursor:pointer}
+::selection{background:var(--pink);color:#fff}
+
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--violet));border-radius:20px;border:3px solid var(--bg2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bulb{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes spin-glow{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+@keyframes hue{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;
+  background:linear-gradient(180deg,rgba(10,9,24,.95),rgba(10,9,24,.78));
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:16px}
+.logo{display:flex;align-items:center;gap:13px;user-select:none}
+.logo-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  font-family:'Noto Sans Tamil',sans-serif;font-weight:700;font-size:30px;color:#fff;
+  background:var(--brand);background-size:200% 200%;animation:shimmer 5s linear infinite;
+  box-shadow:0 8px 24px rgba(255,46,136,.45);cursor:pointer;transition:transform .25s}
+.logo-icon:hover{transform:rotate(-8deg) scale(1.07)}
+.logo h1{font-family:var(--display);font-weight:700;font-size:31px;letter-spacing:4px;line-height:1;
+  background:var(--brand);background-size:200% auto;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
+.logo p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);font-weight:600}
+
+.lang-switch{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:4px}
+.lang-btn{border:none;background:transparent;color:var(--muted);font-weight:700;font-size:13px;
+  letter-spacing:1px;padding:8px 16px;border-radius:30px;transition:.2s;font-family:var(--display)}
+.lang-btn.active{background:var(--brand);color:#fff}
+.lang-btn:hover:not(.active){color:var(--cream)}
+
+.marquee{display:flex;gap:14px;justify-content:center;padding:10px 0 0}
+.marquee span{width:8px;height:8px;border-radius:50%;animation:bulb 1.4s infinite}
+.marquee span:nth-child(6n+1){background:var(--pink);box-shadow:0 0 12px var(--pink)}
+.marquee span:nth-child(6n+2){background:var(--violet);box-shadow:0 0 12px var(--violet)}
+.marquee span:nth-child(6n+3){background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.marquee span:nth-child(6n+4){background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.marquee span:nth-child(6n+5){background:var(--lime);box-shadow:0 0 12px var(--lime)}
+.marquee span:nth-child(6n+6){background:var(--orange);box-shadow:0 0 12px var(--orange)}
+.marquee span:nth-child(2n){animation-delay:.7s}
+
+/* ---------- hero ---------- */
+.hero{padding:46px 0 30px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);letter-spacing:4px;
+  font-size:13px;text-transform:uppercase;font-weight:600;margin-bottom:18px;
+  background:var(--brand2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow::before{content:"";width:34px;height:3px;border-radius:3px;background:var(--brand2)}
+
+.spotlight{position:relative;display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:center;
+  background:linear-gradient(135deg,var(--surface),var(--bg2));
+  border:1px solid var(--line);border-radius:24px;padding:30px;overflow:hidden;
+  box-shadow:var(--shadow);animation:fadeUp .7s ease}
+.spotlight::before{content:"";position:absolute;inset:-2px;z-index:0;border-radius:26px;padding:2px;
+  background:var(--brand);background-size:200% 200%;animation:shimmer 6s linear infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:.55;pointer-events:none}
+.spotlight::after{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;z-index:0;
+  background:conic-gradient(from 0deg,rgba(255,46,136,.25),rgba(168,85,247,.22),rgba(34,211,238,.22),rgba(255,46,136,.25));
+  border-radius:50%;animation:spin-glow 18s linear infinite;pointer-events:none;filter:blur(8px)}
+.spot-poster,.spot-info{position:relative;z-index:2;min-width:0}
+.spot-genre{font-family:var(--display);letter-spacing:3px;font-size:13px;text-transform:uppercase;
+  color:var(--cyan);font-weight:600;margin-bottom:8px}
+.spot-title{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:.98;
+  letter-spacing:1px;margin-bottom:14px;
+  background:linear-gradient(120deg,#fff,#ffc23d,#ff2e88);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.spot-meta{color:var(--muted);font-size:15px;margin-bottom:18px}
+.spot-meta b{color:var(--cream);font-weight:600}
+.spot-story{color:var(--cream);opacity:.85;font-size:15px;margin-bottom:22px;max-width:560px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.spot-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+.score-ticket{display:inline-flex;align-items:center;gap:8px;background:var(--brand2);
+  color:#1a0c20;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:1px;
+  padding:8px 16px;border-radius:10px}
+.score-ticket small{font-size:12px;opacity:.75;font-weight:600}
+
+.btn{font-family:var(--display);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;font-size:14px;
+  padding:13px 24px;border-radius:11px;border:1px solid transparent;transition:.22s;
+  display:inline-flex;align-items:center;gap:9px}
+.btn-gold{background:var(--brand);color:#fff;background-size:160% auto}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(168,85,247,.45);background-position:right center}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--cream);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.spot-dots{display:flex;gap:8px;margin-top:20px}
+.spot-dots button{width:9px;height:9px;border-radius:50%;border:none;background:#3a3268;padding:0;transition:.2s}
+.spot-dots button.on{background:var(--brand);width:28px;border-radius:6px}
+
+/* ---------- poster ---------- */
+.poster{position:relative;width:100%;aspect-ratio:2/3;border-radius:16px;overflow:hidden;
+  background-size:cover;background-position:center;box-shadow:0 16px 36px rgba(0,0,0,.5)}
+.poster .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.poster .ph .init{font-family:var(--display);font-weight:700;font-size:64px;color:rgba(255,255,255,.92);letter-spacing:2px;text-shadow:0 4px 18px rgba(0,0,0,.4)}
+.poster .ph .ph-genre{position:absolute;bottom:14px;left:0;right:0;font-family:var(--display);letter-spacing:3px;font-size:12px;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.poster .perf{position:absolute;top:0;bottom:0;width:14px;display:flex;flex-direction:column;justify-content:space-around;padding:8px 0;background:rgba(0,0,0,.35)}
+.poster .perf.l{left:0}.poster .perf.r{right:0}
+.poster .perf i{display:block;width:7px;height:9px;background:rgba(255,255,255,.3);border-radius:2px;margin:0 auto}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:34px 0 6px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;transition:.2s;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px}
+.stat:hover{transform:translateY(-4px)}
+.stat:nth-child(1)::after{background:var(--pink)}
+.stat:nth-child(2)::after{background:var(--cyan)}
+.stat:nth-child(3)::after{background:var(--gold)}
+.stat:nth-child(1):hover{border-color:var(--pink)}
+.stat:nth-child(2):hover{border-color:var(--cyan)}
+.stat:nth-child(3):hover{border-color:var(--gold)}
+.stat .num{font-family:var(--display);font-weight:700;font-size:42px;line-height:1}
+.stat:nth-child(1) .num{color:var(--pink)}
+.stat:nth-child(2) .num{color:var(--cyan)}
+.stat:nth-child(3) .num{color:var(--gold)}
+.stat .lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;font-weight:600}
+
+/* ---------- section ---------- */
+.section{padding:44px 0}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.section-title{font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:1px;display:flex;align-items:center;gap:14px;
+  background:linear-gradient(120deg,#fff,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section-title::before{content:"";width:7px;height:32px;border-radius:4px;background:var(--brand)}
+.head-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- toolbar ---------- */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.toolbar input,.toolbar select{background:var(--surface);border:1px solid var(--line);color:var(--cream);
+  padding:12px 16px;border-radius:11px;font-family:var(--body);font-size:14px;outline:none;transition:.2s}
+.toolbar input{flex:1;min-width:200px}
+.toolbar input::placeholder{color:var(--muted)}
+.toolbar input:focus,.toolbar select:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(168,85,247,.18)}
+.toolbar select{cursor:pointer}.toolbar select option{background:var(--surface)}
+
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.chip{background:var(--surface);border:1px solid var(--line);font-family:var(--display);letter-spacing:1px;
+  font-size:13px;text-transform:uppercase;font-weight:500;padding:8px 16px;border-radius:30px;transition:.2s}
+.chip:nth-child(7n+1){color:var(--pink)}
+.chip:nth-child(7n+2){color:var(--cyan)}
+.chip:nth-child(7n+3){color:var(--gold)}
+.chip:nth-child(7n+4){color:var(--lime)}
+.chip:nth-child(7n+5){color:var(--violet)}
+.chip:nth-child(7n+6){color:var(--orange)}
+.chip:nth-child(7n+7){color:var(--blue)}
+.chip:hover{border-color:currentColor;transform:translateY(-2px)}
+.chip.on{background:var(--brand);color:#fff!important;border-color:transparent}
+
+/* ---------- grid + cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:26px}
+.card{position:relative;animation:slideUp .5s ease both}
+.card:nth-child(6n+1){--accent:var(--pink)}
+.card:nth-child(6n+2){--accent:var(--cyan)}
+.card:nth-child(6n+3){--accent:var(--gold)}
+.card:nth-child(6n+4){--accent:var(--lime)}
+.card:nth-child(6n+5){--accent:var(--violet)}
+.card:nth-child(6n+6){--accent:var(--orange)}
+.card .poster{transition:transform .3s ease, box-shadow .3s ease}
+.card:hover .poster{transform:translateY(-7px);box-shadow:0 24px 50px -8px var(--accent)}
+
+.card .badge{position:absolute;top:12px;left:12px;z-index:3;background:var(--brand2);color:#1a0c20;
+  font-family:var(--display);font-weight:700;font-size:15px;padding:5px 10px;border-radius:8px;letter-spacing:.5px}
+.heart{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;border-radius:50%;
+  background:rgba(8,6,16,.6);backdrop-filter:blur(4px);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:17px;transition:.2s;color:var(--cream)}
+.heart:hover{transform:scale(1.14);border-color:var(--pink);color:var(--pink)}
+.heart.on{background:var(--pink);border-color:var(--pink);color:#fff}
+
+.card-overlay{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:46px 12px 12px;
+  background:linear-gradient(transparent,rgba(8,6,16,.97));border-radius:0 0 16px 16px;
+  opacity:0;transform:translateY(10px);transition:.28s;pointer-events:none}
+.card:hover .card-overlay{opacity:1;transform:translateY(0);pointer-events:auto}
+.card-overlay .verdict{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.vtag{font-family:var(--display);letter-spacing:.5px;font-size:11px;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:6px;border:1px solid var(--line);color:var(--cream)}
+.vtag.theatre{color:var(--gold);border-color:rgba(255,194,61,.45)}
+.vtag.ott{color:var(--cyan);border-color:rgba(34,211,238,.45)}
+.vtag.skip{color:var(--muted)}
+.overlay-btns{display:flex;gap:7px}
+.mini-btn{flex:1;font-family:var(--display);letter-spacing:1px;text-transform:uppercase;font-size:12px;
+  font-weight:600;padding:9px;border-radius:8px;border:none;background:var(--brand);color:#fff;transition:.2s}
+.mini-btn:hover{filter:brightness(1.15)}
+.mini-btn.danger{background:linear-gradient(120deg,#ff4d6d,#c81d4f)}
+.mini-btn.ghost{background:rgba(255,255,255,.1);color:var(--cream)}
+
+.card-cap{padding:13px 4px 0}
+.card-cap h3{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.5px;line-height:1.1;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-cap .meta{color:var(--muted);font-size:13px;margin-top:3px}
+
+.empty{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--muted)}
+.empty .em-ic{font-size:54px;margin-bottom:14px}
+.empty h3{font-family:var(--display);font-size:28px;color:var(--cream);letter-spacing:1px;margin-bottom:6px}
+
+.admin-only{display:none}
+body.is-admin .admin-only{display:flex}
+.admin-indicator{position:fixed;bottom:24px;left:24px;z-index:70;display:none;align-items:center;gap:8px;
+  background:var(--brand);color:#fff;font-family:var(--display);font-weight:700;letter-spacing:1px;font-size:13px;
+  padding:11px 18px;border-radius:30px;box-shadow:0 10px 26px rgba(168,85,247,.5)}
+body.is-admin .admin-indicator{display:flex}
+.fab{position:fixed;bottom:24px;right:24px;z-index:70;font-family:var(--display);letter-spacing:1px;font-weight:600;
+  background:linear-gradient(120deg,#ff4d6d,#a855f7);color:#fff;border:none;padding:14px 22px;border-radius:30px;
+  box-shadow:0 12px 30px rgba(255,77,109,.5);transition:.2s}
+.fab:hover{transform:translateY(-3px) scale(1.03)}
+
+#secret-hint{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:120;display:none;
+  background:rgba(10,8,20,.94);border:1px solid var(--violet);color:var(--cyan);
+  font-family:var(--display);letter-spacing:1px;font-size:18px;padding:18px 28px;border-radius:14px;
+  box-shadow:0 12px 40px rgba(168,85,247,.4);backdrop-filter:blur(6px)}
+
+/* ---------- modals ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-start;justify-content:center;
+  background:rgba(6,5,14,.8);backdrop-filter:blur(7px);padding:40px 18px;overflow-y:auto}
+.modal.show{display:flex;animation:fadeIn .25s ease}
+.modal-content{position:relative;width:100%;max-width:680px;background:var(--surface);
+  border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--shadow);
+  animation:fadeUp .35s ease;margin:auto 0}
+.modal-content::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;border-radius:20px 20px 0 0;background:var(--brand)}
+.modal-sm{max-width:420px}
+.modal-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;
+  background:var(--surface2);border:1px solid var(--line);color:var(--cream);font-size:22px;line-height:1;transition:.2s}
+.modal-close:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+.modal h2{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:1px;margin-bottom:4px;
+  background:linear-gradient(120deg,#fff,var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.modal-sub{color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px}
+
+.lead{font-family:var(--display);letter-spacing:2px;text-transform:uppercase;font-size:13px;font-weight:600;margin:22px 0 8px;
+  background:var(--brand2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.modal-content p.body{color:var(--cream);opacity:.88}
+.modal-content ul{padding-left:20px;color:var(--cream);opacity:.88;margin-top:4px}
+.modal-content li{margin-bottom:5px}
+.embed{margin:18px 0;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.embed iframe{width:100%;height:330px;display:block;border:0}
+
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-family:var(--display);letter-spacing:1px;text-transform:uppercase;
+  font-size:12px;color:var(--cyan);font-weight:600;margin-bottom:7px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg2);border:1px solid var(--line);
+  color:var(--cream);padding:12px 14px;border-radius:10px;font-family:var(--body);font-size:14px;outline:none;transition:.2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(168,85,247,.18)}
+.form-group textarea{min-height:90px;resize:vertical}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.error-msg{color:var(--pink);font-size:13px;margin-top:8px;min-height:18px}
+.modal-buttons{display:flex;gap:12px;justify-content:flex-end;margin-top:24px}
+
+.star-input{display:flex;gap:6px;font-size:30px;color:#3a3268}
+.star-input span{cursor:pointer;transition:.15s}
+.star-input span.on{color:var(--gold);text-shadow:0 0 14px rgba(255,194,61,.6)}
+
+.vreview{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--violet);
+  border-radius:10px;padding:14px;margin-bottom:12px}
+.vreview .vr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.vreview .vr-name{font-weight:600;color:var(--cream)}
+.vreview .vr-rate{color:var(--gold);font-weight:600;font-family:var(--display)}
+.vreview p{color:var(--muted);font-size:14px}
+
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);
+  font-family:var(--display);letter-spacing:2px;font-size:13px;text-transform:uppercase}
+
+@media(max-width:760px){
+  .spotlight{grid-template-columns:1fr;gap:24px}
+  .spot-poster{max-width:230px;margin:0 auto}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .stat{padding:14px}.stat .num{font-size:30px}.stat .lbl{font-size:10px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .grid-2{grid-template-columns:1fr}
+  .modal-content{padding:24px}
+  .logo h1{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<!-- Firebase (for live public opinions). Free Google cloud database. -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-row">
+      <div class="logo">
+        <div class="logo-icon" id="logoIcon">ப</div>
+        <div>
+          <h1>PADAM</h1>
+          <p data-i18n="tagline">Tamil Cinema Reviews</p>
+        </div>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" id="langEn" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" id="langTa" onclick="setLanguage('ta')">தமிழ்</button>
+      </div>
+    </div>
+    <div class="marquee"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow" data-i18n="nowShowing">Now Showing</div>
+    <div id="spotlight"></div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat"><div class="num" id="statFilms">0</div><div class="lbl" data-i18n="filmsReviewed">Films Reviewed</div></div>
+    <div class="stat"><div class="num" id="statAvg">—</div><div class="lbl" data-i18n="avgRating">Avg Rating</div></div>
+    <div class="stat"><div class="num" id="statTheatre">0</div><div class="lbl" data-i18n="theatrePicks">Theatre Picks</div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-title display-ta" data-i18n="allReviews">All Reviews</div>
+      <div class="head-actions">
+        <button class="btn btn-ghost" onclick="surpriseMe()"><span>🎲</span><span data-i18n="surprise">Surprise Me</span></button>
+        <button class="btn btn-ghost" id="watchlistToggle" onclick="toggleWatchlistView()"><span>♥</span><span data-i18n="watchlist">Watchlist</span></button>
+        <button class="btn btn-ghost admin-only" onclick="exportJSON()">⬇ <span data-i18n="exportJson">Export JSON</span></button>
+        <button class="btn btn-ghost admin-only" onclick="saveToFile()">💾 <span data-i18n="saveToFile">Save to file</span></button>
+        <button class="btn btn-ghost admin-only" onclick="document.getElementById('importInput').click()">⬆ <span data-i18n="importJson">Import JSON</span></button>
+        <button class="btn btn-ghost admin-only" onclick="reloadFromFile()">↻ <span data-i18n="reloadFile">Reload from file</span></button>
+        <input type="file" id="importInput" accept="application/json,.json" style="display:none" onchange="importJSON(event)">
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" data-i18n-ph="searchFilms" placeholder="Search films..." onkeyup="renderMovies()">
+      <select id="yearFilter" onchange="renderMovies()"></select>
+      <select id="sortSelect" onchange="renderMovies()">
+        <option value="new" data-i18n="sortNew">Recently Added</option>
+        <option value="rating" data-i18n="sortRating">Top Rated</option>
+        <option value="year" data-i18n="sortYear">Latest Releases</option>
+      </select>
+    </div>
+
+    <div class="chips" id="genreChips"></div>
+    <div class="grid" id="moviesGrid"></div>
+  </div>
+</section>
+
+<footer><span data-i18n="footer">© PADAM — Honest Tamil Cinema Reviews</span></footer>
+
+<div class="admin-indicator">✓ <span data-i18n="adminMode">Admin Mode</span></div>
+<button class="fab admin-only" onclick="openAddModal()">+ <span data-i18n="addReview">Add Review</span></button>
+<div id="secret-hint"></div>
+
+<!-- READ MODAL -->
+<div class="modal" id="readModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('readModal')">×</button>
+    <div id="readContent"></div>
+    <div class="lead" data-i18n="viewerOpinions">Viewer Opinions</div>
+    <div id="viewerReviews"></div>
+    <button class="btn btn-gold" style="margin-top:16px;width:100%" onclick="openViewerForm(currentMovieId)">+ <span data-i18n="addOpinion">Add Your Opinion</span></button>
+  </div>
+</div>
+
+<!-- ADD / EDIT MODAL (admin) -->
+<div class="modal" id="addModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('addModal')">×</button>
+    <h2 id="addTitle" data-i18n="addReview">Add Review</h2>
+    <div class="modal-sub" data-i18n="adminOnly">Admin Only</div>
+    <div class="grid-2">
+      <div class="form-group"><label data-i18n="fTitle">Title</label><input type="text" id="f_title"></div>
+      <div class="form-group"><label data-i18n="fYear">Year</label><input type="number" id="f_year" value="2025"></div>
+    </div>
+    <div class="grid-2">
+      <div class="form-group"><label data-i18n="fGenre">Genre</label><input type="text" id="f_genre"></div>
+      <div class="form-group"><label data-i18n="fDirector">Director</label><input type="text" id="f_director"></div>
+    </div>
+    <div class="grid-2">
+      <div class="form-group"><label data-i18n="fMusic">Music</label><input type="text" id="f_music"></div>
+      <div class="form-group"><label data-i18n="fCast">Cast</label><input type="text" id="f_cast"></div>
+    </div>
+    <div class="form-group"><label data-i18n="fPoster">Poster image URL (optional)</label><input type="text" id="f_poster" placeholder="https://..."></div>
+    <div class="form-group"><label data-i18n="fRating">Rating (out of 5)</label><div class="star-input" id="formStars"></div></div>
+    <div class="form-group"><label data-i18n="fStory">Story</label><textarea id="f_story"></textarea></div>
+    <div class="grid-2">
+      <div class="form-group"><label data-i18n="fPros">What works (comma separated)</label><input type="text" id="f_pros"></div>
+      <div class="form-group"><label data-i18n="fCons">What doesn't (comma separated)</label><input type="text" id="f_cons"></div>
+    </div>
+    <div class="grid-2">
+      <div class="form-group"><label data-i18n="fWatch">Where to watch</label>
+        <select id="f_watch"><option value="theatre">Theatre</option><option value="ott">OTT</option><option value="skip">Skip</option></select></div>
+      <div class="form-group"><label data-i18n="fFamily">Audience</label>
+        <select id="f_family"><option value="yes">Family</option><option value="partial">Guidance</option><option value="no">Adult</option></select></div>
+    </div>
+    <div class="form-group"><label data-i18n="fYoutube">YouTube review link (optional)</label><input type="text" id="f_youtube" placeholder="https://youtu.be/..."></div>
+    <div class="error-msg" id="formError"></div>
+    <div class="modal-buttons">
+      <button class="btn btn-ghost" onclick="closeModal('addModal')" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-gold" onclick="saveReview()" data-i18n="save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- VIEWER REVIEW MODAL -->
+<div class="modal" id="viewerModal">
+  <div class="modal-content modal-sm">
+    <button class="modal-close" onclick="closeModal('viewerModal')">×</button>
+    <h2 data-i18n="addOpinion">Add Your Opinion</h2>
+    <div class="modal-sub" data-i18n="shareThoughts">Share your thoughts</div>
+    <div class="form-group"><label data-i18n="yourName">Your Name</label><input type="text" id="vr_name"></div>
+    <div class="form-group"><label data-i18n="yourRating">Your Rating</label><div class="star-input" id="viewerStars"></div></div>
+    <div class="form-group"><label data-i18n="yourReview">Your Review</label><textarea id="vr_text"></textarea></div>
+    <div class="error-msg" id="vrError"></div>
+    <div class="modal-buttons">
+      <button class="btn btn-ghost" onclick="closeModal('viewerModal')" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-gold" onclick="saveViewerReview()" data-i18n="submit">Submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL (secret) -->
+<div class="modal" id="loginModal">
+  <div class="modal-content modal-sm">
+    <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+    <h2 data-i18n="adminLogin">Admin Login</h2>
+    <div class="modal-sub" data-i18n="secureAccess">Secure Access</div>
+    <div class="form-group"><label data-i18n="username">Username</label>
+      <input type="text" id="usernameInput" autocomplete="off" data-i18n-ph="enterUsername" placeholder="Enter username" onkeypress="if(event.key==='Enter')login()"></div>
+    <div class="form-group"><label data-i18n="password">Password</label>
+      <input type="password" id="passwordInput" autocomplete="off" data-i18n-ph="enterPassword" placeholder="Enter password" onkeypress="if(event.key==='Enter')login()"></div>
+    <div class="error-msg" id="loginError"></div>
+    <div class="modal-buttons">
+      <button class="btn btn-ghost" onclick="closeModal('loginModal')" data-i18n="cancel">Cancel</button>
+      <button class="btn btn-gold" onclick="login()" data-i18n="login">Login</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ STATE ============ */
+let movies=[], isAdmin=false, currentMovieId=null, editingId=null;
+let formRating=0, viewerRating=0, lang='en';
+let activeGenre='', showWatchlistOnly=false, spotIndex=0, spotTimer=null;
+let watchlist=JSON.parse(localStorage.getItem('padamWatchlist')||'[]');
+
+const ADMIN_USERNAME='kalampadam';
+const ADMIN_PASSWORD='kalampadam2026';
+
+/* ============ FIREBASE (live public opinions) ============ */
+/* STEP 1: create a free Firebase project, enable Firestore, then paste your config below.
+   Until you do, opinions just save on the visitor's own device (no error).            */
+const firebaseConfig = {
+  apiKey: "PASTE_YOUR_API_KEY",
+  authDomain: "PASTE.firebaseapp.com",
+  projectId: "PASTE_PROJECT_ID",
+  storageBucket: "PASTE.appspot.com",
+  messagingSenderId: "PASTE_SENDER_ID",
+  appId: "PASTE_APP_ID"
+};
+let db=null;
+const FIREBASE_ON = firebaseConfig.apiKey && !firebaseConfig.apiKey.includes('PASTE');
+if(FIREBASE_ON){
+  try{ firebase.initializeApp(firebaseConfig); db=firebase.firestore(); }
+  catch(e){ console.warn('Firebase init failed:',e); }
+}
+
+/* ============ TRANSLATIONS ============ */
+const T={
+  en:{
+    tagline:'Tamil Cinema Reviews', nowShowing:'Now Showing', filmsReviewed:'Films Reviewed',
+    avgRating:'Avg Rating', theatrePicks:'Theatre Picks', allReviews:'All Reviews',
+    surprise:'Surprise Me', watchlist:'Watchlist', watchlistOn:'Show All',
+    searchFilms:'Search films...', allYears:'All Years', allGenres:'All Genres',
+    sortNew:'Recently Added', sortRating:'Top Rated', sortYear:'Latest Releases',
+    footer:'© PADAM — Honest Tamil Cinema Reviews', adminMode:'Admin Mode', addReview:'Add Review',
+    exportJson:'Export JSON', saveToFile:'Save to file', importJson:'Import JSON', reloadFile:'Reload from file',
+    readReview:'Read Review', edit:'Edit', delete:'Delete', viewerOpinions:'Viewer Opinions',
+    addOpinion:'Add Your Opinion', noOpinions:'No opinions yet. Be the first!',
+    cast:'Cast', director:'Director', music:'Music', story:'Story', whatWorks:'What Works',
+    whatDoesnt:"What Doesn't", watchReview:'Watch Review',
+    noReviews:'No reviews yet', checkBack:'New reviews are on the way.',
+    emptyWatchlist:'Your watchlist is empty', tapHeart:'Tap the ♥ on any film to save it here.',
+    adminOnly:'Admin Only', fTitle:'Title', fYear:'Year', fGenre:'Genre', fDirector:'Director',
+    fMusic:'Music', fCast:'Cast', fPoster:'Poster image URL (optional)', fRating:'Rating (out of 5)',
+    fStory:'Story', fPros:'What works (comma separated)', fCons:"What doesn't (comma separated)",
+    fWatch:'Where to watch', fFamily:'Audience', fYoutube:'YouTube review link (optional)',
+    cancel:'Cancel', save:'Save', submit:'Submit', shareThoughts:'Share your thoughts',
+    yourName:'Your Name', yourRating:'Your Rating', yourReview:'Your Review',
+    adminLogin:'Admin Login', secureAccess:'Secure Access', username:'Username', password:'Password',
+    login:'Login', enterUsername:'Enter username', enterPassword:'Enter password',
+    theatre:'Theatre', ott:'OTT', skip:'Skip', family:'Family', guidance:'Guidance', adult:'Adult',
+    needTitle:'Title is required', wrongLogin:'Wrong username or password', needName:'Please enter your name'
+  },
+  ta:{
+    tagline:'தமிழ் சினிமா விமர்சனம்', nowShowing:'இப்போது திரையில்', filmsReviewed:'விமர்சித்த படங்கள்',
+    avgRating:'சராசரி மதிப்பீடு', theatrePicks:'திரையரங்கத் தேர்வுகள்', allReviews:'அனைத்து விமர்சனங்கள்',
+    surprise:'ஏதேனும் ஒன்று', watchlist:'பார்க்க வேண்டியவை', watchlistOn:'அனைத்தையும் காட்டு',
+    searchFilms:'படங்களைத் தேடுங்கள்...', allYears:'அனைத்து ஆண்டுகள்', allGenres:'அனைத்து வகைகள்',
+    sortNew:'சமீபத்தில் சேர்க்கப்பட்டது', sortRating:'சிறந்த மதிப்பீடு', sortYear:'சமீபத்திய வெளியீடுகள்',
+    footer:'© படம் — நேர்மையான தமிழ் சினிமா விமர்சனம்', adminMode:'நிர்வாக முறை', addReview:'விமர்சனம் சேர்',
+    exportJson:'JSON பதிவிறக்கு', saveToFile:'கோப்பில் சேமி', importJson:'JSON ஏற்று', reloadFile:'கோப்பிலிருந்து மீளேற்று',
+    readReview:'விமர்சனம் படிக்க', edit:'திருத்து', delete:'நீக்கு', viewerOpinions:'பார்வையாளர் கருத்துகள்',
+    addOpinion:'உங்கள் கருத்தைச் சேருங்கள்', noOpinions:'இன்னும் கருத்துகள் இல்லை. முதலில் நீங்கள் எழுதுங்கள்!',
+    cast:'நடிகர்கள்', director:'இயக்குநர்', music:'இசை', story:'கதை', whatWorks:'சிறந்த அம்சங்கள்',
+    whatDoesnt:'குறைகள்', watchReview:'விமர்சனத்தைப் பார்',
+    noReviews:'இன்னும் விமர்சனங்கள் இல்லை', checkBack:'புதிய விமர்சனங்கள் விரைவில்.',
+    emptyWatchlist:'உங்கள் பட்டியல் காலியாக உள்ளது', tapHeart:'எந்த படத்திலும் ♥ ஐ அழுத்தி சேமியுங்கள்.',
+    adminOnly:'நிர்வாகம் மட்டும்', fTitle:'தலைப்பு', fYear:'ஆண்டு', fGenre:'வகை', fDirector:'இயக்குநர்',
+    fMusic:'இசை', fCast:'நடிகர்கள்', fPoster:'போஸ்டர் படத்தின் இணைப்பு (விருப்பம்)', fRating:'மதிப்பீடு (5 இல்)',
+    fStory:'கதை', fPros:'சிறந்த அம்சங்கள் (கமாவால் பிரிக்கவும்)', fCons:'குறைகள் (கமாவால் பிரிக்கவும்)',
+    fWatch:'எங்கே பார்க்கலாம்', fFamily:'பார்வையாளர்கள்', fYoutube:'யூடியூப் இணைப்பு (விருப்பம்)',
+    cancel:'ரத்து', save:'சேமி', submit:'சமர்ப்பி', shareThoughts:'உங்கள் கருத்தைப் பகிருங்கள்',
+    yourName:'உங்கள் பெயர்', yourRating:'உங்கள் மதிப்பீடு', yourReview:'உங்கள் விமர்சனம்',
+    adminLogin:'நிர்வாக உள்நுழைவு', secureAccess:'பாதுகாப்பான அணுகல்', username:'பயனர்பெயர்', password:'கடவுச்சொல்',
+    login:'உள்நுழை', enterUsername:'பயனர்பெயரை உள்ளிடவும்', enterPassword:'கடவுச்சொல்லை உள்ளிடவும்',
+    theatre:'திரையரங்கம்', ott:'ஓடிடி', skip:'தவிர்க்கவும்', family:'குடும்பம்', guidance:'வழிகாட்டுதல்', adult:'பெரியவர்களுக்கு',
+    needTitle:'தலைப்பு தேவை', wrongLogin:'தவறான பயனர்பெயர் அல்லது கடவுச்சொல்', needName:'உங்கள் பெயரை உள்ளிடவும்'
+  }
+};
+const GENRES_TA={Thriller:'த்ரில்லர்',Drama:'நாடகம்',Action:'ஆக்‌ஷன்',Comedy:'நகைச்சுவை',Romance:'காதல்',
+  Horror:'திகில்',Crime:'குற்றம்',Family:'குடும்பம்',Historical:'வரலாறு','Sci-Fi':'அறிவியல் புனைவு',
+  Fantasy:'கற்பனை',Adventure:'சாகசம்',Mystery:'மர்மம்',Biography:'வாழ்க்கை வரலாறு',Musical:'இசை',Sports:'விளையாட்டு'};
+
+function t(k){return (T[lang] && T[lang][k]) || T.en[k] || k;}
+function tg(g){return lang==='ta' ? (GENRES_TA[g]||g) : g;}
+function tWatch(w){return w==='theatre'?t('theatre'):w==='ott'?t('ott'):t('skip');}
+function tFamily(f){return f==='yes'?t('family'):f==='partial'?t('guidance'):t('adult');}
+
+/* ============ LANGUAGE ============ */
+function setLanguage(l){
+  lang=l; localStorage.setItem('padamLang',l);
+  document.documentElement.classList.toggle('ta', l==='ta');
+  document.documentElement.lang = l;
+  document.getElementById('langEn').classList.toggle('active', l==='en');
+  document.getElementById('langTa').classList.toggle('active', l==='ta');
+  applyStaticText();
+  buildYearFilter(); buildGenreChips(); renderMovies(); renderSpotlight();
+}
+function applyStaticText(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent=t(el.getAttribute('data-i18n')); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder=t(el.getAttribute('data-i18n-ph')); });
+  // watchlist button label reflects current view
+  const wl=document.getElementById('watchlistToggle').querySelector('span:last-child');
+  wl.textContent = showWatchlistOnly ? t('watchlistOn') : t('watchlist');
+}
+
+/* ============ DATA ============ */
+function getSampleData(){
+  return {movies:[
+    {id:1,title:'Soorarai Pottru',year:2020,genre:'Drama',director:'Sudha Kongara',music:'G.V. Prakash Kumar',
+     cast:'Suriya, Aparna Balamurali',rating:5,
+     story:'An inspiring story of a man who dreams of making air travel affordable for the common people, fighting every obstacle in his path.',
+     pros:'Inspiring story,Career-best Suriya,Powerful music',cons:'Slightly long runtime',
+     family:'yes',watch:'theatre',youtube:'https://youtu.be/Ab43cM9mFTo',poster:'',
+     viewerReviews:[{name:'Arun',rating:5,text:'Most inspiring Tamil film of the decade. A must watch!'}]},
+    {id:2,title:'Vikram',year:2022,genre:'Action',director:'Lokesh Kanagaraj',music:'Anirudh Ravichander',
+     cast:'Kamal Haasan, Vijay Sethupathi, Fahadh Faasil',rating:4.5,
+     story:'A special agent investigates a series of masked killings, only to uncover a web far bigger and more dangerous than he imagined.',
+     pros:'Stylish direction,Stellar cast,Banger soundtrack',cons:'Violent for some',
+     family:'partial',watch:'theatre',youtube:'https://youtu.be/OKBMCL-frPU',poster:'',
+     viewerReviews:[{name:'Karthik',rating:5,text:'Lokesh universe is on fire. Goosebumps throughout!'}]},
+    {id:3,title:'Jai Bhim',year:2021,genre:'Drama',director:'T.J. Gnanavel',music:'Sean Roldan',
+     cast:'Suriya, Lijomol Jose',rating:4.5,
+     story:'A lawyer fights a relentless legal battle for justice on behalf of a marginalised tribal family wronged by the system.',
+     pros:'Hard-hitting,Important theme,Strong performances',cons:'Heavy subject',
+     family:'partial',watch:'ott',youtube:'',poster:'',
+     viewerReviews:[]}
+  ]};
+}
+const DATA_URL='padam-data.json';   // the single shared data file (placed next to this HTML on your host)
+let fileHandle=null;                 // remembers the file for "Save to file" (Chrome/Edge) within a session
+
+// Load order: unpublished admin draft  ->  the shared JSON file  ->  saved local copy  ->  built-in samples
+async function loadData(){
+  const dirty = localStorage.getItem('padamDirty')==='1';
+  const local = localStorage.getItem('padamData');
+
+  if(dirty && local){                       // admin has local changes not yet published
+    try{ movies=JSON.parse(local).movies||[]; return; }catch(e){}
+  }
+  try{                                       // try the shared JSON file (works when the page is hosted)
+    const res=await fetch(DATA_URL,{cache:'no-store'});
+    if(res.ok){
+      const data=await res.json();
+      if(data && Array.isArray(data.movies)){
+        movies=data.movies;
+        localStorage.setItem('padamData', JSON.stringify({movies},null,2));
+        localStorage.removeItem('padamDirty');
+        return;
+      }
+    }
+  }catch(e){ /* file missing or opened via file:// — fall back below */ }
+
+  if(local){ try{movies=JSON.parse(local).movies||[];return;}catch(e){} }
+  movies=getSampleData().movies; saveData();
+}
+function saveData(){ localStorage.setItem('padamData', JSON.stringify({movies},null,2)); }
+function markDirty(){ localStorage.setItem('padamDirty','1'); }   // there are local changes to publish
+function saveWatchlist(){ localStorage.setItem('padamWatchlist', JSON.stringify(watchlist)); }
+
+/* ===== JSON FILE: publish / load ===== */
+function currentJSON(){ return JSON.stringify({movies},null,2); }
+
+// Download the data as padam-data.json — replace the file on your host to publish for everyone
+function exportJSON(){
+  const blob=new Blob([currentJSON()],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='padam-data.json'; a.click();
+  URL.revokeObjectURL(url);
+  localStorage.removeItem('padamDirty');
+  showHint('⬇ padam-data.json downloaded');
+}
+
+// Write straight back to a chosen file (Chrome / Edge only)
+async function saveToFile(){
+  if(!window.showSaveFilePicker){ showHint('Use Export JSON in this browser'); exportJSON(); return; }
+  try{
+    if(!fileHandle){
+      fileHandle=await window.showSaveFilePicker({suggestedName:'padam-data.json',
+        types:[{description:'JSON',accept:{'application/json':['.json']}}]});
+    }
+    const w=await fileHandle.createWritable();
+    await w.write(currentJSON()); await w.close();
+    localStorage.removeItem('padamDirty');
+    showHint('💾 Saved to file');
+  }catch(e){ /* user cancelled */ }
+}
+
+// Load data from a JSON file the admin picks
+function importJSON(e){
+  const file=e.target.files[0]; if(!file)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const data=JSON.parse(r.result);
+      if(!Array.isArray(data.movies)) throw new Error('no movies array');
+      movies=data.movies; saveData(); markDirty();
+      buildGenreChips(); renderMovies(); renderSpotlight();
+      showHint('⬆ Imported '+movies.length+' films');
+    }catch(err){ showHint('⚠ Invalid JSON file'); }
+  };
+  r.readAsText(file);
+  e.target.value='';
+}
+
+// Discard local drafts and reload the published shared file
+async function reloadFromFile(){
+  localStorage.removeItem('padamDirty');
+  localStorage.removeItem('padamData');
+  await loadData();
+  buildGenreChips(); renderMovies(); renderSpotlight();
+  showHint('↻ Reloaded from file');
+}
+
+/* ============ POSTER HELPER ============ */
+function hueFor(str){let h=0;for(let i=0;i<str.length;i++)h=str.charCodeAt(i)+((h<<5)-h);return Math.abs(h)%360;}
+function posterHtml(m){
+  if(m.poster && m.poster.trim()){
+    return `<div class="poster" style="background-image:url('${m.poster.replace(/'/g,"")}')">
+      <div class="perf l"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="perf r"><i></i><i></i><i></i><i></i><i></i></div></div>`;
+  }
+  const h=hueFor(m.title);
+  const bg=`linear-gradient(150deg, hsl(${h},55%,28%), hsl(${(h+40)%360},60%,15%))`;
+  return `<div class="poster" style="background:${bg}">
+    <div class="perf l"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="perf r"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ph"><div class="init">${(m.title[0]||'?').toUpperCase()}</div><div class="ph-genre">${tg(m.genre)}</div></div>
+  </div>`;
+}
+
+/* ============ SPOTLIGHT ============ */
+function renderSpotlight(){
+  const box=document.getElementById('spotlight');
+  if(!movies.length){box.innerHTML='';return;}
+  const top=[...movies].sort((a,b)=>b.rating-a.rating).slice(0,Math.min(4,movies.length));
+  if(spotIndex>=top.length)spotIndex=0;
+  const m=top[spotIndex];
+  box.innerHTML=`
+    <div class="spotlight">
+      <div class="spot-poster">${posterHtml(m)}</div>
+      <div class="spot-info">
+        <div class="spot-genre">${tg(m.genre)}</div>
+        <div class="spot-title display-ta">${m.title}</div>
+        <div class="spot-meta">${m.year} &nbsp;·&nbsp; <b>${t('director')}:</b> ${m.director} &nbsp;·&nbsp; <b>${t('music')}:</b> ${m.music||'—'}</div>
+        <p class="spot-story">${m.story}</p>
+        <div class="spot-actions">
+          <span class="score-ticket">★ ${m.rating.toFixed(1)} <small>/5</small></span>
+          <button class="btn btn-gold" onclick="openReadModal(${m.id})">${t('readReview')}</button>
+          <button class="btn btn-ghost" onclick="toggleWatch(${m.id},event)">${watchlist.includes(m.id)?'♥':'♡'} ${t('watchlist')}</button>
+        </div>
+        <div class="spot-dots">${top.map((_,i)=>`<button class="${i===spotIndex?'on':''}" onclick="gotoSpot(${i})"></button>`).join('')}</div>
+      </div>
+    </div>`;
+  clearTimeout(spotTimer);
+  if(top.length>1) spotTimer=setTimeout(()=>{spotIndex=(spotIndex+1)%top.length;renderSpotlight();},6500);
+}
+function gotoSpot(i){spotIndex=i;renderSpotlight();}
+
+/* ============ FILTERS ============ */
+function buildYearFilter(){
+  const sel=document.getElementById('yearFilter');
+  const cur=sel.value;
+  const years=[...new Set(movies.map(m=>m.year))].sort((a,b)=>b-a);
+  sel.innerHTML=`<option value="">${t('allYears')}</option>`+years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  sel.value=cur;
+}
+function buildGenreChips(){
+  const box=document.getElementById('genreChips');
+  const genres=[...new Set(movies.map(m=>m.genre))];
+  box.innerHTML=`<button class="chip ${activeGenre===''?'on':''}" onclick="setGenre('')">${t('allGenres')}</button>`+
+    genres.map(g=>`<button class="chip ${activeGenre===g?'on':''}" onclick="setGenre('${g.replace(/'/g,"")}')">${tg(g)}</button>`).join('');
+}
+function setGenre(g){activeGenre=g;buildGenreChips();renderMovies();}
+function toggleWatchlistView(){
+  showWatchlistOnly=!showWatchlistOnly;
+  const btn=document.getElementById('watchlistToggle');
+  btn.classList.toggle('btn-gold',showWatchlistOnly);
+  btn.classList.toggle('btn-ghost',!showWatchlistOnly);
+  applyStaticText();
+  renderMovies();
+}
+
+/* ============ RENDER MOVIES ============ */
+function renderMovies(){
+  buildYearFilter();
+  const grid=document.getElementById('moviesGrid');
+  const search=(document.getElementById('searchInput').value||'').toLowerCase();
+  const year=document.getElementById('yearFilter').value;
+  const sort=document.getElementById('sortSelect').value;
+
+  let list=movies.filter(m=>{
+    if(search && !(m.title.toLowerCase().includes(search)||(m.genre||'').toLowerCase().includes(search))) return false;
+    if(year && m.year.toString()!==year) return false;
+    if(activeGenre && m.genre!==activeGenre) return false;
+    if(showWatchlistOnly && !watchlist.includes(m.id)) return false;
+    return true;
+  });
+  if(sort==='rating') list.sort((a,b)=>b.rating-a.rating);
+  else if(sort==='year') list.sort((a,b)=>b.year-a.year);
+  else list.sort((a,b)=>b.id-a.id);
+
+  updateStats();
+
+  if(!list.length){
+    grid.innerHTML=`<div class="empty">
+      <div class="em-ic">${showWatchlistOnly?'♡':'🎞️'}</div>
+      <h3>${showWatchlistOnly?t('emptyWatchlist'):t('noReviews')}</h3>
+      <p>${showWatchlistOnly?t('tapHeart'):t('checkBack')}</p></div>`;
+    return;
+  }
+
+  grid.innerHTML=list.map((m,i)=>`
+    <div class="card" style="animation-delay:${i*0.05}s">
+      ${posterHtml(m)}
+      <div class="badge">★ ${m.rating.toFixed(1)}</div>
+      <button class="heart ${watchlist.includes(m.id)?'on':''}" onclick="toggleWatch(${m.id},event)" aria-label="watchlist">${watchlist.includes(m.id)?'♥':'♡'}</button>
+      <div class="card-overlay">
+        <div class="verdict">
+          <span class="vtag ${m.watch}">${tWatch(m.watch)}</span>
+          <span class="vtag">${tFamily(m.family)}</span>
+        </div>
+        <div class="overlay-btns">
+          <button class="mini-btn" onclick="openReadModal(${m.id})">${t('readReview')}</button>
+          <button class="mini-btn ghost admin-only" onclick="editMovie(${m.id})">${t('edit')}</button>
+          <button class="mini-btn danger admin-only" onclick="deleteMovie(${m.id})">${t('delete')}</button>
+        </div>
+      </div>
+      <div class="card-cap">
+        <h3 class="display-ta">${m.title}</h3>
+        <div class="meta">${m.year} · ${tg(m.genre)}</div>
+      </div>
+    </div>`).join('');
+}
+function updateStats(){
+  document.getElementById('statFilms').textContent=movies.length;
+  document.getElementById('statTheatre').textContent=movies.filter(m=>m.watch==='theatre').length;
+  document.getElementById('statAvg').textContent= movies.length? (movies.reduce((s,m)=>s+m.rating,0)/movies.length).toFixed(1):'—';
+}
+
+/* ============ WATCHLIST ============ */
+function toggleWatch(id,e){
+  if(e){e.stopPropagation();}
+  const i=watchlist.indexOf(id);
+  if(i>=0)watchlist.splice(i,1); else watchlist.push(id);
+  saveWatchlist(); renderMovies(); renderSpotlight();
+}
+function surpriseMe(){
+  if(!movies.length)return;
+  const m=movies[Math.floor(Math.random()*movies.length)];
+  openReadModal(m.id);
+}
+
+/* ============ READ MODAL ============ */
+function openReadModal(id){
+  currentMovieId=id;
+  const m=movies.find(x=>x.id===id); if(!m)return;
+  let yt='';
+  if(m.youtube){
+    let v=m.youtube;
+    if(v.includes('youtu.be/'))v=v.split('youtu.be/')[1].split(/[?&]/)[0];
+    else if(v.includes('watch?v='))v=v.split('watch?v=')[1].split('&')[0];
+    if(v)yt=`<div class="lead">▶ ${t('watchReview')}</div><div class="embed"><iframe src="https://www.youtube.com/embed/${v}" allowfullscreen></iframe></div>`;
+  }
+  document.getElementById('readContent').innerHTML=`
+    <h2 class="display-ta">${m.title}</h2>
+    <div class="modal-sub">${m.year} · ${tg(m.genre)} · ${m.director}</div>
+    <span class="score-ticket">★ ${m.rating.toFixed(1)} <small>/5</small></span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+      <span class="vtag ${m.watch}">${tWatch(m.watch)}</span>
+      <span class="vtag">${tFamily(m.family)}</span>
+    </div>
+    <div class="lead">${t('cast')}</div><p class="body">${m.cast}</p>
+    ${yt}
+    <div class="lead">${t('story')}</div><p class="body">${m.story}</p>
+    <div class="lead">${t('whatWorks')}</div><ul>${(m.pros||'').split(',').filter(Boolean).map(p=>`<li>${p.trim()}</li>`).join('')}</ul>
+    <div class="lead">${t('whatDoesnt')}</div><ul>${(m.cons||'').split(',').filter(Boolean).map(c=>`<li>${c.trim()}</li>`).join('')}</ul>`;
+  renderViewerReviews(id);
+  openModal('readModal');
+}
+async function renderViewerReviews(id){
+  const m=movies.find(x=>x.id===id);
+  const box=document.getElementById('viewerReviews');
+  const seed=(m.viewerReviews||[]).map(r=>({name:r.name,rating:r.rating,text:r.text}));
+
+  let live=[];
+  if(FIREBASE_ON && db){
+    box.innerHTML=`<p style="color:var(--muted);padding:8px 0">…</p>`;
+    try{
+      const snap=await db.collection('opinions').where('movieId','==',id).get();
+      live=snap.docs.map(d=>d.data()).sort((a,b)=>(a.ts||0)-(b.ts||0));
+    }catch(e){ console.warn('load opinions failed',e); }
+  }
+  const all=seed.concat(live);
+  if(!all.length){box.innerHTML=`<p style="color:var(--muted);padding:8px 0">${t('noOpinions')}</p>`;return;}
+  box.innerHTML=all.map(r=>`
+    <div class="vreview"><div class="vr-top"><span class="vr-name">👤 ${esc(r.name)}</span><span class="vr-rate">★ ${r.rating}/5</span></div><p>${esc(r.text)}</p></div>`).join('');
+}
+function esc(s){return (s||'').toString().replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));}
+
+/* ============ VIEWER REVIEW ============ */
+function openViewerForm(id){
+  currentMovieId=id; viewerRating=0;
+  document.getElementById('vr_name').value='';
+  document.getElementById('vr_text').value='';
+  document.getElementById('vrError').textContent='';
+  buildStars('viewerStars',v=>viewerRating=v,0);
+  openModal('viewerModal');
+}
+async function saveViewerReview(){
+  const name=document.getElementById('vr_name').value.trim();
+  const text=document.getElementById('vr_text').value.trim();
+  if(!name){document.getElementById('vrError').textContent=t('needName');return;}
+  const op={movieId:currentMovieId, name, rating:viewerRating||5, text, ts:Date.now()};
+
+  if(FIREBASE_ON && db){
+    try{
+      await db.collection('opinions').add(op);     // saved live in the cloud for everyone
+      closeModal('viewerModal'); renderViewerReviews(currentMovieId);
+      return;
+    }catch(e){ document.getElementById('vrError').textContent='Could not save. Check your connection.'; return; }
+  }
+  // fallback (no Firebase configured yet): save on this device only
+  const m=movies.find(x=>x.id===currentMovieId);
+  if(!m.viewerReviews)m.viewerReviews=[];
+  m.viewerReviews.push({name,rating:op.rating,text});
+  saveData(); markDirty(); closeModal('viewerModal'); renderViewerReviews(currentMovieId);
+}
+
+/* ============ ADMIN: ADD / EDIT / DELETE ============ */
+function openAddModal(){
+  editingId=null; formRating=0;
+  document.getElementById('addTitle').textContent=t('addReview');
+  ['f_title','f_genre','f_director','f_music','f_cast','f_poster','f_story','f_pros','f_cons','f_youtube'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f_year').value=new Date().getFullYear();
+  document.getElementById('f_watch').value='theatre';
+  document.getElementById('f_family').value='yes';
+  document.getElementById('formError').textContent='';
+  buildStars('formStars',v=>formRating=v,0);
+  openModal('addModal');
+}
+function editMovie(id){
+  const m=movies.find(x=>x.id===id); if(!m)return;
+  editingId=id; formRating=m.rating;
+  document.getElementById('addTitle').textContent=t('edit');
+  document.getElementById('f_title').value=m.title;
+  document.getElementById('f_year').value=m.year;
+  document.getElementById('f_genre').value=m.genre;
+  document.getElementById('f_director').value=m.director;
+  document.getElementById('f_music').value=m.music||'';
+  document.getElementById('f_cast').value=m.cast||'';
+  document.getElementById('f_poster').value=m.poster||'';
+  document.getElementById('f_story').value=m.story||'';
+  document.getElementById('f_pros').value=m.pros||'';
+  document.getElementById('f_cons').value=m.cons||'';
+  document.getElementById('f_watch').value=m.watch;
+  document.getElementById('f_family').value=m.family;
+  document.getElementById('f_youtube').value=m.youtube||'';
+  document.getElementById('formError').textContent='';
+  buildStars('formStars',v=>formRating=v,m.rating);
+  openModal('addModal');
+}
+function saveReview(){
+  const title=document.getElementById('f_title').value.trim();
+  if(!title){document.getElementById('formError').textContent=t('needTitle');return;}
+  const data={
+    title,
+    year:parseInt(document.getElementById('f_year').value)||new Date().getFullYear(),
+    genre:document.getElementById('f_genre').value.trim()||'Drama',
+    director:document.getElementById('f_director').value.trim(),
+    music:document.getElementById('f_music').value.trim(),
+    cast:document.getElementById('f_cast').value.trim(),
+    poster:document.getElementById('f_poster').value.trim(),
+    rating:formRating||4,
+    story:document.getElementById('f_story').value.trim(),
+    pros:document.getElementById('f_pros').value.trim(),
+    cons:document.getElementById('f_cons').value.trim(),
+    watch:document.getElementById('f_watch').value,
+    family:document.getElementById('f_family').value,
+    youtube:document.getElementById('f_youtube').value.trim()
+  };
+  if(editingId){
+    const m=movies.find(x=>x.id===editingId);
+    Object.assign(m,data);
+  }else{
+    data.id=Date.now(); data.viewerReviews=[]; movies.push(data);
+  }
+  saveData(); markDirty(); closeModal('addModal'); buildGenreChips(); renderMovies(); renderSpotlight();
+}
+function deleteMovie(id){
+  movies=movies.filter(m=>m.id!==id);
+  watchlist=watchlist.filter(w=>w!==id); saveWatchlist();
+  saveData(); markDirty(); buildGenreChips(); renderMovies(); renderSpotlight();
+}
+
+/* ============ STARS ============ */
+function buildStars(containerId,onPick,initial){
+  const c=document.getElementById(containerId);
+  let cur=initial||0;
+  const paint=v=>{[...c.children].forEach((s,i)=>s.classList.toggle('on',i<Math.round(v)));};
+  c.innerHTML='';
+  for(let i=1;i<=5;i++){
+    const s=document.createElement('span'); s.textContent='★';
+    s.onmouseenter=()=>paint(i);
+    s.onmouseleave=()=>paint(cur);
+    s.onclick=()=>{cur=i;onPick(i);paint(i);};
+    c.appendChild(s);
+  }
+  paint(cur);
+}
+
+/* ============ MODALS ============ */
+function openModal(id){document.getElementById(id).classList.add('show');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('show');document.body.style.overflow='';}
+document.addEventListener('click',e=>{
+  document.querySelectorAll('.modal.show').forEach(mo=>{if(e.target===mo){mo.classList.remove('show');document.body.style.overflow='';}});
+});
+
+/* ============ SECRET ADMIN ACCESS ============ */
+function showHint(msg){const h=document.getElementById('secret-hint');h.textContent=msg;h.style.display='block';setTimeout(()=>h.style.display='none',1600);}
+function openLogin(){
+  document.getElementById('usernameInput').value='';
+  document.getElementById('passwordInput').value='';
+  document.getElementById('loginError').textContent='';
+  openModal('loginModal');
+  setTimeout(()=>document.getElementById('usernameInput').focus(),100);
+}
+// Way 1: Ctrl+Shift+A
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&e.shiftKey&&(e.key==='A'||e.key==='a')){e.preventDefault();showHint('🔐 Admin');openLogin();}
+});
+// Way 2: type "kalampadam" anywhere (not inside a field)
+let buf='';const SECRET='kalampadam';
+document.addEventListener('keydown',e=>{
+  const tag=(e.target.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea'||tag==='select')return;
+  if(e.key&&e.key.length===1){
+    buf=(buf+e.key.toLowerCase()).slice(-SECRET.length);
+    if(buf===SECRET){buf='';showHint('🔐 Admin');openLogin();}
+  }
+});
+// Way 3: tap the logo 5 times (works on phone)
+let taps=0,tapT=null;
+document.getElementById('logoIcon').addEventListener('click',()=>{
+  taps++;clearTimeout(tapT);tapT=setTimeout(()=>taps=0,2000);
+  if(taps>=5){taps=0;showHint('🔐 Admin');openLogin();}
+});
+function login(){
+  const u=document.getElementById('usernameInput').value.trim();
+  const p=document.getElementById('passwordInput').value;
+  if(u===ADMIN_USERNAME&&p===ADMIN_PASSWORD){
+    isAdmin=true;document.body.classList.add('is-admin');
+    closeModal('loginModal');showHint('✓ Admin Access');renderMovies();
+  }else{document.getElementById('loginError').textContent=t('wrongLogin');}
+}
+
+/* ============ INSPECT BLOCKING (soft only) ============ */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+  if(e.key==='F12')e.preventDefault();
+  if(e.ctrlKey&&e.shiftKey&&['I','J','C','i','j','c'].includes(e.key))e.preventDefault();
+  if(e.ctrlKey&&(e.key==='U'||e.key==='u'))e.preventDefault();
+});
+
+/* ============ INIT ============ */
+async function init(){
+  lang=localStorage.getItem('padamLang')||'en';
+  await loadData();
+  setLanguage(lang);  // applies text + builds filters + renders everything
+}
+init();
+</script>
+</body>
+</html>
